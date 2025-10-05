@@ -1,338 +1,416 @@
-@import url("https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap");
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-    background: rgb(red, green, blue);
-}
-/* Global Variable */
-:root{
-    --main:#2de200;
-    --black:#000;
-    --white:#fff;
-    --box_shadow:10px 10px 10px
-    -10px rgba(0,0,0,0.3),inset
-    10px 10px 10px -10px []rgba(0,0,0,0.6);
-    --font_family:"STIX Two Text", serif;
+@import url("https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap"); 
+ 
+* { 
+margin: 0; 
+padding: 0; 
+box-sizing: border-box; 
+} 
+ 
+body { 
+background: rgb(179, 239, 179); /* Fixed: Use numeric RGB values instead of color names */ 
+} 
+ 
+/* Global Variable */ 
+:root { 
+--main: #2de200; 
+--black: #000; 
+--white: #fff; 
+--box_shadow: 10px 10px 10px -10px rgba(0, 0, 0, 0.3), inset 10px 10px 10px -10px rgba(0, 0, 0, 0.6); /* Fixed: Added missing comma, removed invalid '[]', proper box-shadow syntax */ 
+--font_family: "STIX Two Text", serif; 
+} 
+ 
+*::selection { 
+background: var(--main); 
+color: var(--white) !important; 
+} 
+ 
+html::-webkit-scrollbar { /* Fixed: Removed leading dot (.) for element selector */ 
+width: 10px; 
+} 
+ 
+html::-webkit-scrollbar-thumb { /* Fixed: Same as above */ 
+background: var(--main); 
+} 
+ 
+html::-webkit-scrollbar-track { /* Fixed: Same as above */ 
+background-color: #222; 
+} 
+ 
+.content { 
+margin: 80px auto; 
+} 
+ 
+.content h6 { 
+width: 300px; 
+background: var(--main); 
+color: var(--white) !important; 
+text-align: center; 
+padding: 20px; 
+font-size: 40px; 
+font-family: var(--font_family); 
+font-weight: 900; 
+} 
+ 
+/* Navbar Section Start */ 
+.navbar { 
+padding: 20px; 
+display: flex; 
+justify-content: space-between; 
+transition: 0.3s; 
+} 
+ 
+.navbar.scroll { 
+padding: 10px; 
+background: var(--black); 
+} 
+ 
+.navbar-brand { 
+padding: 0px 100px; 
+font-size: 3em; 
+font-family: var(--font_family); 
+font-weight: 500; 
+color: var(--white) !important; 
+} 
+ 
+.navbar-brand i { 
+font-size: 1.6em; 
+color: var(--main); 
+margin-right: 10px; 
+} 
+ 
+.navbar-nav { 
+padding: 0px 100px; 
+margin-top: 30px; 
+} 
+ 
+.nav-link {  
+font-weight: 600; 
+color: var(--white) !important; 
+font-family: var(--font_family); 
+margin-right: 10px; 
+transition: 0.3s; 
+} 
+ 
+.nav-link:hover { 
+color: var(--main) !important; 
+} 
+ 
+.nav-link::after { 
+content: ""; 
+background: var(--main); 
+height: 2px; 
+width: 0px; 
+display: block; 
+position: absolute; 
+transition: 0.3s; 
+} 
+ 
+.nav-link:hover::after { 
+width: 40px; 
+} 
+ 
+.nav-link1 { /* Note: This class was updated in HTML to use Bootstrap's btn classes; consider removing if not needed */ 
+width: 150px; 
+background: var(--main); 
+color: var(--white) !important; 
+} 
+ 
+/* Navbar Section End */ 
+ 
+/* Header Section Start */ 
+.header { 
+margin: 0; 
+padding: 0; 
+position: relative; 
+} 
+ 
+.header .img-parent { 
+position: relative; 
+} 
+ 
+.header img { 
+height: 90vh; 
+width: 100%; 
+object-fit: cover; 
+} 
+ 
+.header .imgOverlay { /* Fixed: Class name was 'imagOverlay' in HTML; assuming it's a typo and should be 'imgOverlay' for consistency */ 
+position: absolute; 
+top: 0; 
+left: 0; 
+height: 100%; 
+width: 100%; 
+background: var(--black); 
+opacity: 0.4; 
+z-index: 1; 
+} 
+ 
+.header .carousel-control-prev, 
+.header .carousel-control-next { 
+z-index: 3; 
+} 
+ 
+.header .imgContent { 
+position: absolute; 
+top: 98%; 
+left: 50%; 
+transform: translate(-50%, -50%); 
+z-index: 3; 
+text-align: center; 
+box-shadow: var(--box_shadow); 
+color: var(--black); 
+padding: 20px; 
+font-family: var(--font_family); 
+background: #ccc; 
+} 
+ 
+.header .imgContent h6 { /* Fixed: Selector was '.header.imgContent h6' (invalid compound class); now properly nested */ 
+font-weight: 600; 
+font-size: 3.5em; 
+} 
+ 
+.header .imgContent h6 span { 
+font-weight: 900; 
+color: var(--main) !important; 
+font-size: 1.03em; /* Fixed: Added missing unit (em) */ 
+} 
+ 
+.header .btn { 
+width: 250px; 
+border: 1px solid var(--main); 
+color: var(--main) !important; 
+font-weight: bold; 
+margin: 5px 10px; 
+border-radius: 15px; 
+transition: 0.3s; 
+} 
+ 
+.header .btn:hover { 
+background-color: var(--main); 
+color: var(--white) !important; 
+letter-spacing: 3px; 
+} 
+ 
+/* Header Section End */ 
+ 
+/* Stats Section Start (New) */ 
+#stats { 
+padding: 80px 0; 
+background: rgba(179, 255, 179, 0.8); 
+} 
+.stats .counter { 
+font-size: 3em; 
+font-weight: 900; 
+color: var(--main); 
+margin-bottom: 10px; 
+transition: all 0.3s ease; 
+} 
+.stats p { 
+font-size: 1.2em; 
+color: var(--black); 
+font-weight: 500; 
+} 
+.stats i { 
+transition: transform 0.3s ease; 
+} 
+.stats:hover i { 
+transform: scale(1.1); 
+} 
+ 
+ 
+/* about Section Start */ 
+.about { 
+margin: 200px auto; 
+} 
+ 
+.about img { 
+height: 500px; 
+object-fit: cover; 
+cursor: pointer; 
+box-shadow: var(--box_shadow); 
+} 
+ 
+.about .offset-sm-2 { 
+margin-top: 1px; 
+} 
+ 
+.about .offset-sm-2 h5 { 
+font-weight: 500; /* Fixed: Removed invalid 'px' unit from font-weight */ 
+font-size: 40px; 
+font-family: var(--font_family); 
+} 
+ 
+.about .offset-sm-2 h5 span { 
+font-weight: 900; 
+font-size: 55px; 
+color: var(--main) !important; 
+} 
+ 
+.about .btn { 
+width: 300px; 
+border: 1px solid var(--main); 
+color: var(--main) !important; 
+font-weight: 600; 
+border-radius: 15px; 
+} 
+ 
+.about .btn:hover { 
+background-color: var(--main) !important; 
+color: var(--white) !important; 
+letter-spacing: 3px; 
+} 
+ 
+/* about Section End */ 
+ 
+/* services Section Start */ 
+.services { 
+margin-bottom: 200px; 
+} 
+ 
+.services .box { 
+box-shadow: var(--box_shadow); 
+padding: 20px; 
+text-align: center; 
+border-top-left-radius: 20%; 
+border-bottom-right-radius: 20%; 
+cursor: pointer; 
+transition: 0.3s; 
+margin-bottom: 80px; 
+} 
+ 
+.services .box:hover { 
+background: var(--main); 
+color: var(--white) !important; 
+} 
+ 
+.services .box img { 
+height: 150px; 
+width: 150px; 
+border-radius: 50%; 
+object-fit: cover; 
+} 
+ 
+.services .btn { 
+width: 200px; 
+border: 1px solid var(--main); 
+color: var(--main) !important; 
+border-radius: 15px; 
+font-weight: bold; 
+} 
+ 
+.services .box:hover .btn { 
+border: 1px solid var(--white); 
+color: var(--white) !important; 
+} 
+ 
+.services .btn:hover { 
+border: 1px solid var(--white); 
+color: var(--white) !important; 
+} 
+ 
+/* services Section End */ 
+ 
+/* Second Header Section Start */ 
+.second_header { 
+margin-bottom: 200px; 
+position: relative; 
+} 
+ 
+.second_header .img-parent { 
+position: relative; 
+} 
+ 
+.second_header img { 
+height: 80vh; 
+width: 100%; 
+object-fit: cover; 
+} 
+ 
+.second_header .imgOverlay { 
+position: absolute; 
+top: 0; 
+left: 0; 
+height: 100%; 
+width: 100%; 
+background: var(--black); 
+opacity: 0.4; 
+} 
+ 
+.second_header .imgContent { 
+position: absolute; 
+top: 50%; 
+left: 50%; 
+transform: translate(-50%, -50%); 
+text-align: center; 
+color: var(--white) !important; 
+} 
+ 
+.second_header .imgContent h6 { 
+font-size: 4em; 
+font-family: var(--font_family); 
+} 
+ 
+.second_header .imgContent h6 span { 
+font-weight: 900; 
+font-size: 1.2em; 
+color: var(--main) !important; 
+} 
+ 
+/* Second Header Section End */ 
+ 
+/* Contact us Section Start */ 
+.contact { 
+margin-bottom: 200px; 
+} 
+ 
+.contact img { 
+height: 500px; 
+object-fit: cover; 
+} 
+ 
+.contact h5 { 
+font-weight: 500; 
+font-size: 3em; 
+margin: 4px auto; 
+font-family: var(--font_family); 
+} 
+ 
+.contact h5 span { 
+font-weight: 900; 
+font-size: 1.1em; 
+color: var(--main) !important; 
+} 
+ 
+.contact .btn { 
+width: 300px; 
+border-radius: 15px; 
+border: 1px solid var(--main); /* Fixed: Added proper border syntax (was just '15px') */ 
+color: var(--main) !important; 
+font-weight: bold; 
+transition: 0.3s; 
+} 
+ 
+.contact .btn:hover { 
+background: var(--main); 
+color: var(--white) !important; 
+letter-spacing: 2px; 
+} 
+ 
+/* Contact us Section End */ /* Fixed: Comment was duplicated/misplaced */ 
+ 
+/* Footer Section Start */ 
+footer { 
+background: var(--main); 
+padding: 20px; 
+text-align: center; 
+} 
+ 
+footer a { 
+font-weight: bold; 
+color: var(--white) !important; 
+} 
+ 
+/* Footer Section End */ 
+ 
 
-}
-*::selection {
-    background: var(--main);
-    color: var(--white) !important;
-}
-.html::-webkit-scrollbar {
-    width: 10px;
-
-}
-.html::-webkit-scrollbar-thumb {
-    background: var(--main);
-}
-.html::-webkit-scrollbar-track {
-    background-color: #222;
-}
-.content {
-    margin: 80px auto;
-}
-.content h6 {
-    width: 300px;
-    background: var(--main);
-    color: var(--white) !important;
-    text-align: center;
-    padding: 20px;
-    font-size: 40px;
-    font-family: var(--font_family);
-    font-weight: 900;
-}
-/* Navbar Section Start */
-.navbar {
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    transition: 0.3s;
-}
-.navbar.scroll {
-    padding: 10px;
-    background: var(--black);
-}
-.navbar-brand {
-    padding: 0px 100px;
-    font-size: 3em;
-    font-family: var(--font_family);
-    font-weight: 500;
-    color: var(--white) !important;
-}
-.navbar-brand i {
-    font-size: 1.6em;
-    color: var(--main);
-    margin-right: 10px;
-}
-.navbar-nav {
-    padding: 0px 100px;
-    margin-top: 30px;
-}
-.nav-link { 
-    font-weight: 600;
-    color: var(--white) !important;
-    font-family: var(--font_family);
-    margin-right: 10px;
-    transition: 0.3s;
-}
-.nav-link:hover {
-    color: var(--main) !important;
-}
-.nav-link::after {
-    content: "";
-    background: var(--main);
-    height: 2px;
-    width: 0px;
-    display: block;
-    position: absolute;
-    transition: 0.3s;
-}
-.nav-link:hover::after {
-    width: 40px;
-}
-.nav-link1 {
-    width: 150px;
-    background: var(--main);
-    color: var(--white) !important;
-}
-/* Navbar Section End */
-
-/* Header Section Start */
-.header {
-    margin: 0;
-    padding: 0;
-    position: relative;
-}
-.header .img-parent {
-    position: relative;
-}
-.header img {
-    height: 80vh;
-    width: 100%;
-    object-fit: cover;
-}
-.header .imgOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: var(--black);
-    opacity: 0.4;
-    z-index: 1;
-}
-.header .carousel-control-prev,
-.header .carousel-control-next {
-    z-index: 3;
-}
-.header .imgContent {
-    position: absolute;
-    top: 98%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 3;
-    text-align: center;
-    box-shadow: var(--box_shadow);
-    color: var(--black);
-    padding: 20px;
-    font-family: var(--font_family);
-    background: #ccc;
-
-}
-.header.imgContent h6 {
-    font-weight: 600;
-    font-size: 3.5em;
-}
-.header .imgContent h6 span {
-    font-weight: 900;
-    color: var(--main) !important;
-    font-size: 1.03;
-}
-.header .btn {
-    width: 250px;
-    border: 1px solid var(--main);
-    color: var(--main) !important;
-    font-weight: bold;
-    margin: 5px 10px;
-    border-radius: 15px;
-    transition: 0.3s;
-}
-.header .btn:hover {
-    background-color: var(--main);
-    color: var(--white) !important;
-    letter-spacing: 3px;
-}
-/* Header Section End */
-
-/* about Section Start */
-.about {
-    margin: 200px auto;
-}
-.about img {
-    height: 500px;
-    object-fit: cover;
-    cursor: pointer;
-    box-shadow: var(--box_shadow);
-}
-.about .offset-sm-2 {
-    margin-top: 1px;
-}
-.about .offset-sm-2 h5 {
-    font-weight: 500px;
-    font-size: 40px;
-    font-family: var(--font_family);
-}
-.about .offset-sm-2 h5 span {
-    font-weight: 900;
-    font-size: 55px;
-    color: var(--main) !important;
-}
-.about .btn {
-    width: 300px;
-    border: 1px solid var(--main);
-    color: var(--main) !important;
-    font-weight: 600;
-    border-radius: 15px;
-}
-.about .btn:hover {
-    background-color: var(--main) !important;
-    color: var(--white) !important;
-    letter-spacing: 3px;
-}
-
-/* about Section End */
-
-/* services Section Start */
-.services {
-    margin-bottom: 200px;
-}
-.services .box {
-    box-shadow: var(--box_shadow);
-    padding: 20px;
-    text-align: center;
-    border-top-left-radius: 20%;
-    border-bottom-right-radius: 20%;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-bottom: 80px;
-}
-.services .box:hover {
-    background: var(--main);
-    color: var(--white) !important;
-}
-.services .box img {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-
-}
-.services .btn {
-    width: 200px;
-    border: 1px solid var(--main);
-    color: var(--main) !important;
-    border-radius: 15px;
-    font-weight: bold;
-}
-.services .box:hover .btn {
-    border: 1px solid var(--white);
-    color: var(--white) !important;
-}
-.services .btn:hover {
-    border: 1px solid var(--white);
-    color: var(--white) !important;
-}
-/* services Section End */
-
-/* Second Header Section Start */
-.second_header {
-    margin-bottom: 200px;
-    position: relative;
-}
-.second_header .img-parent {
-    position: relative;
-}
-.second_header img {
-    height: 60vh;
-    width: 100%;
-    object-fit: cover;
-}
-.second_header .imgOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: var(--black);
-    opacity: 0.4;
-}
-.second_header .imgContent {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: var(--white) !important;
-}
-.second_header .imgContent h6 {
-    font-size: 4em;
-    font-family: var(--font_family);
-}
-.second_header .imgContent h6 span {
-    font-weight: 900;
-    font-size: 1.2em;
-    color: var(--main) !important;
-}
-/* Second Header Section End */
-
-/* Contact us Section Start */
-.contact {
-    margin-bottom: 200px;
-}
-.contact img {
-    height: 500px;
-    object-fit: cover;
-
-}
-.contact h5 {
-    font-weight: 500;
-    font-size: 3em;
-    margin: 4px auto;
-    font-family: var(--font_family);
-}
-.contact h5 span {
-    font-weight: 900;
-    font-size: 1.1em;
-    color: var(--main) !important;
-}
-.contact .btn {
-    width: 300px;
-    border-radius: 15px;
-    border: 15px;
-    color: var(--main) !important;
-    font-weight: bold;
-    transition: 0.3s;
-
-}
-.contact .btn:hover {
-    background: var(--main);
-    color: var(--white) !important;
-    letter-spacing: 2px;
-}
-/* Contact us Section Start */
-
-/* Footer Section Start */
-footer {
-    background: var(--main);
-    padding: 20px;
-    text-align: center;
-}
-footer a {
-    font-weight: bold;
-    color: var(--white) !important;
-}
-/* Footer Section End */
+ 
